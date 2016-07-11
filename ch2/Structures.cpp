@@ -11,6 +11,7 @@ void vector_init(Vector& v, int s)
 	v.elem = new double[s];		// allocate an array of doubles
 	v.sz = s;
 }
+// The & in Vector& indicates that we pass v by non-const reference; that way, vector_init() can modify the vector passed to it.
 
 double read_and_sum(int s)
 {
