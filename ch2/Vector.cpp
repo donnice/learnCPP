@@ -1,8 +1,13 @@
 // Vector.cpp page 68
 #include "Vector.h"
+#include <stdexcept> 
+
+using namespace std;
 
 Vector::Vector(int s)
 {
+	if(s<0)
+		throw length_error("shit!");
 	elem = new double[s];
 	sz = s;
 }

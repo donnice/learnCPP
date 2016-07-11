@@ -3,6 +3,8 @@
 #include "Vector.h"
 #include <cmath>
 #include <iostream>
+#include <stdexcept>
+#include <type_traits>
 
 using namespace std;
 
@@ -21,6 +23,24 @@ void f(Vector& v)
 	{
 		v[v.size()]=7;
 	}
+	catch(out_of_range)
+	{
+		cout << "Out of range!" << endl;
+	}
+}
+
+void test()
+{
+	static_assert(4<=sizeof(int),"Integers are too small!");
+
+	try
+	{
+		Vector v(-27);
+	}
+	catch(length_error)
+	{
+		cout << "There is length error!!"<< endl;
+	}
 }
 
 int main()
@@ -30,5 +50,7 @@ int main()
 //		v.elem[i] = i;
 	v.init();
 	cout << sqrt_sum(v) << endl;
+	f(v);
+	test();
 	return 0;
 }
