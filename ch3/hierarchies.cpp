@@ -15,8 +15,8 @@ public:
 		yval = y;
 	}
 
-	double x(){return xval;}
-	double y(){return yval;}
+	double x() const{return xval;}
+	double y() const{return yval;}
 
 	double dist(Point other)
 	{
@@ -28,6 +28,13 @@ public:
 	Point add(Point b)
 	{
 		return Point(xval+b.x(),yval+b.y());
+	}
+
+	Point operator=(const Point& p)
+	{
+		xval = p.x();
+		yval = p.y();
+		return *this;
 	}
 
 	void rotate(int angle)
@@ -50,11 +57,38 @@ public:
 
 class Circle:public Shape
 {
+private:
+	Point x;
+	int r;
 public:
-	Circle(Point p, int rr)					// constructor
-
+	
+	Circle(Point p, int rr);					// constructor
+	
 	Point center() const {return x;}
+	void move(Point to){x=to;}
 
+	void draw() const;
+	void rotate(int angle){}
+	
+};
+
+class Smiley:public Circle
+{
+private:
+	vector<Shape*> eyes;
+	Shape* mouth;
+public:
+	Smiley(Point p, int r):Circle(p,r){}
+	~Smiley()
+	{
+		delete mouth;
+		for(auto p:eyes) delete p;
+	}
+	void move(Point to);
+
+	void draw() const;
+
+	
 };
 
 void rotate_all(vector<Shape*>& v, int angle);
@@ -69,6 +103,7 @@ int main()
 
 void rotate_all(vector<Shape*>& v, int angle)
 {
-	for(auto p:v)
+	for(auto& p:v)
 		p->rotate(angle);
 }
+
