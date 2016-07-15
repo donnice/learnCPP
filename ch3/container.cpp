@@ -20,7 +20,9 @@ public:
 		delete[] elem;
 	}
 
-	double& operator[](int i);
+	Vector(const Vector& a);
+	Vector& operator=(const Vector& a);
 
+	double& operator[](int i);
 	void push_back(double d);
-}
+};

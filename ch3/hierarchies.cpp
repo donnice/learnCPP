@@ -87,12 +87,23 @@ public:
 	void move(Point to);
 
 	void draw() const;
+	void rotate(int n);
 
+	void add_eye(Shape* s){eyes.push_back(s);}
+	void set_mouth(Shaoe* s);
+	virtual void wink(int i);
 	
 };
 
 void rotate_all(vector<Shape*>& v, int angle);
 
+void Smiley::draw()
+{
+	Circle::draw();
+	for(auto p:eyes)
+		p->draw();
+	mouth->draw();
+}
 
 int main()
 {	
@@ -105,5 +116,8 @@ void rotate_all(vector<Shape*>& v, int angle)
 {
 	for(auto& p:v)
 		p->rotate(angle);
+	// The Dot (.) operator can't be overloaded, arrow (->) operator can be overloaded.
+
+    // The Dot (.) operator can't be applied to pointers.
 }
 
