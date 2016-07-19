@@ -31,6 +31,24 @@ Vector& Vector::operator=(const Vector& a)
 	return *this;
 }
 
+void f(const Vector& x, const Vector& y, const Vector& z)
+{
+	Vector r;
+//	r = x+y+z;		// bad thing, because copying is expensive
+}
+
+Vector f()
+{
+	Vector x(1000);
+	Vector y(1000);
+	Vector z(1000);
+
+	z=x;			// copy
+	y=std::move(x);	// move
+
+	return z;		// move
+}
+
 int main()
 {
 	return 0;
