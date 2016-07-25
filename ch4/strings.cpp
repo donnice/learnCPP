@@ -23,6 +23,20 @@ void m3()
 	name[0] = toupper(name[0]);
 }
 
+string incantation;
+
+void respond(const string& answer)
+{
+	if(answer == incantation)
+	{
+
+	}
+	else if(answer == "yes")
+	{
+
+	}
+}
+
 int main()
 {
 	m3();
