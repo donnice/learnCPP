@@ -1,4 +1,5 @@
 #include<iostream>
+#include<list>
 #include<vector>
 // page 112
 
@@ -35,6 +36,20 @@ void input()
 }
 
 vector<Entry> book2 = phone_book;
+
+list<Entry> phone_book2 = {
+	{"David", 123456},
+	{"Don",1234567},
+	{"Dios",122345}
+};
+
+int get_number(const string& s)
+{
+	for(auto p=phone_book2.begin();p!=phone_book2.end();++p)
+		if(p->name==s)
+			return p->number;
+	return 0;
+}
 
 int main()
 {

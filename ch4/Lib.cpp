@@ -6,6 +6,7 @@
 #include<fstream>		// fstream, ifstream, ofstream
 #include<future>		// future, promise
 #include<iostream>		// istream, ostream, cin, cout
+#include<list>			// list
 #include<map>			// map, multimap
 #include<memory>		// unique_ptr, shared_ptr, normal
 #include<random> 		// default_random_engine, normal_distribution
