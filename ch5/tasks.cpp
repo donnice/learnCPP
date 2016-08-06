@@ -37,7 +37,8 @@ private:
 
 public:
 	F3(const vector<double>& vv, double* p):v(vv),res(p){}
-}
+	void operator()();
+};
 
 int main()
 {
