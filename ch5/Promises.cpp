@@ -20,8 +20,10 @@ int main()
 	future<int> fut = prom.get_future();
 
 	thread th1(print_int,ref(fut));			// send future to new thread
-	
+//	thread th2(print_int,ref(fut));
+
 	prom.set_value(10);
 
 	th1.join();
+//	th2.join();
 }
