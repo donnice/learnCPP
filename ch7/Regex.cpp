@@ -22,6 +22,16 @@ int main()
 
 	regex_search(str,m,re2);
 	cout << " POSIX (leftmost longest) match: " << m[0] << endl;
+	
+	regex word_regex("(\\S+)");
+	auto words_begin = sregex_iterator(s.begin(), s.end(), word_regex);
+	auto words_end = sregex_iterator();
+
+	cout << "Found "
+		 << distance(words_begin, words_end)
+		 << " words\n";
+
+	const int N = 6;
 
 	return 0;
 }

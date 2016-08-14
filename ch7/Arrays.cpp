@@ -3,6 +3,25 @@
 
 using namespace std;
 
+int ma[3][5];
+
+void init_ma()
+{
+	for(int i = 0; i!=3; i++)
+		for(int j = 0; j!=5; j++)
+			ma[i][j] = 10*i+j;
+}
+
+void print_mij(int* m, int dim1, int dim2)
+{
+	for(int i = 0; i!=dim1; i++)
+	{
+		for(int j = 0; j!=dim2; j++)
+			cout << m[i*dim2+j] << '\t';
+		cout << '\n';
+	}
+}
+
 void f()
 {
 	int aa[10];
